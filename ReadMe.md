@@ -4,7 +4,7 @@
 - [2. Document Purpose](#2-document-purpose)
 - [3. Introduction](#3-introduction)
 - [4. Experience](#4-experience)
-- [5. Self Reflection](#5-self reflection)
+- [5. Self Reflection](#5-self-reflection)
 
 ## 2. Document purpose
 This document will share the road through semester 6 and the professional products I create and to what learning outcome these can be linked. For seperate learning events on certain topics seperate files will be created to share the progress through a certain topic.
