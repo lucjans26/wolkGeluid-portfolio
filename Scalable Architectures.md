@@ -21,3 +21,5 @@ As mentioned before, designing a well thought out architecture is essential to m
 ## 3. Messaging
 
 ## 4. Monitoring
+
+## 5. Reflection
