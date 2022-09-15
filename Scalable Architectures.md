@@ -13,6 +13,10 @@ Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly o
 - **Data Integrity**: Personal data will be stored according to GDPR regulations
 
 ## 2. Architecture
+As mentioned before, designing a well thought out architecture is essential to make sure NFR's can be realised. Therefore the following design has been created:
+
+![Untitled Diagram drawio](https://user-images.githubusercontent.com/46562627/190365632-2873bd85-dd6a-4336-8fa1-f2bbb12972a2.png)
+
 
 ## 3. Messaging
 
