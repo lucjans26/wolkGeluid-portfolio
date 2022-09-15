@@ -11,3 +11,5 @@ From the start of my development process, my IDE (phpStorm) has been equipped wi
 
 ## 4. Owasp top 10
 The OWASP top 10 is a standard document that serves the purpose of creating awareness about the 10 most critical security issues in web applications. I created my own version of the document elaborating on what certain issues mean and how I (plan to) mitigate them.
+
+## 5. Reflection
