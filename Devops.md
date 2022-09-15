@@ -21,3 +21,5 @@ To check the quality of my code, I added a [Sonarcloud](https://sonarcloud.io/) 
 ## 5. Status badges
 
 ## 6. Postman
+
+## 7. Reflection
