@@ -20,11 +20,16 @@ First of all I want to finish semester 6 as good as possible. Where I have barel
 ## 4. Experience
 
 ## 5. Projects
+Throughout this semester we are working on different projects. On one side we are working on a group project. Our group consists of 4 software students with vastly different skill sets. This is a project to learn about research and technology within a group. 
+Besides this we are working on an individual project. This gives us the oppertunity to focus more explicitly on specific learning outcomes.
 
 ### 5.1 Indiviual
+
+
 ### 5.2 Group
+The tax office is a government body that is responsible for levying and collecting taxes and customs duties for the state.
 
-
+Within the country, a problem of traffic jams has arisen over the years that does not seem to be resolving itself. For this reason, the state has determined that road pricing can be used to reduce congestion on the road network. The state hopes to accomplish this by passing on congestion costs down to the driver and thereby making a driver think better about the use of a vehicle. This variable charging method makes it possible to charge different rates in certain areas or certain hours in order to be able to guide traffic to some extent.
 
 ## 5. Self Reflection
 In this chapter I reflect on my own skill levels. Underneath is a table with the given learning outcomes plotted against what skill level i think i have myself on that outcome. Under de table you will find a briefly described explaination per learning outcome
@@ -39,3 +44,12 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 | LO6 |⚪|   |   |   |   |
 | LO7 |  |⚪|   |   |   |
 | LO8 |⚪|   |   |   |   |
+
+#### LO1 Developing and Deployment of Enterprise Software as a Professional
+#### LO2 Context Based Research
+#### LO3 Preparation for Life-Long Learning
+#### LO4 Scalable Architectures
+#### LO5 Development and Operations (DevOps)
+#### LO6 Cloud Services
+#### LO7 Security By Design
+#### LO8 Distributed Data
