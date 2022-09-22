@@ -15,12 +15,13 @@ The OWASP top 10 is a standard document that serves the purpose of creating awar
 ## 5. Authentication and Authorization
 The web application needs a way to register customers and a way to login. However this poses a major security risk due to data storage like; names, emails, adresses, passwords, etc. 
 The best way to mitigate this issue is by using a good third party for authentication, especially for outside customers.
-For authorisation Role-based access control is implemented. It creates systematic repeatable assignment of permissions, quick addition and changes of roles, intergration of third party user by using pre-defined roles, and easily auditable user privileges.
+For authorisation Role-based access control (RBAC) is implemented.
 
 ### 5.1 Authentication
 The web application needs a way to register customers and a way to login. However this poses a major security risk due to data storage like; names, emails, adresses, passwords, etc. 
 The best way to mitigate this issue is by using a good third party for authentication.
 In my app I used Google as said third party.
+
 That workflow would look something like this:
 
 ![image](https://developers.google.com/identity/protocols/oauth2/images/flows/implicit.png)
@@ -41,7 +42,19 @@ And the user is logged in or registered and recieves a [Laravel Sanctum accessTo
 Besides the customers, moderators also need an account. To keep this fully internal a custom authentication method is built. Just like a customer, a moderator receives a certain scope or scopes that allow access to certain endpoints.
 
 ### 5.2 Authorisation
-As mentioned in the Authentication portion, the logged in user recieves a token. 
+As mentioned in the Authentication portion, the logged in user recieves a token. This token is part of RBAC. It creates systematic repeatable assignment of permissions, quick addition and changes of roles, intergration of third party user by using pre-defined roles, and easily auditable user privileges. 
+This is done in two parts: assigning the roles, and checking the roles. in this example a token is generated for a user which gives the user access to certain scopes; artist, album and music. This snippet was taken from OauthTrait.php where the keys for a user are made;
+```php
+return $newUser->createToken(IdTrait::requestTokenId(), ['artist', 'album', 'music'])->plainTextToken;
+```
+
+The second part is checking the roles. Within Routes/Api.php when trying to access the endpoint the scopes of the users are checked through the sanctum middleware;
+
+```php
+Route::get(ARTIST_ROUTE, [ArtistController::class, 'getArtist'])->middleware(['auth:sanctum', 'abilities:artist']);
+```
+
+For the current scale of this application, the token scopes and RBAC are sufficient. However in the future it would be essential to be prepared to deal with way more roles than the current application supports. This could be done in multiple ways. Within Laravel it could be handled within the controller which requires more logic which in turn is harder to upkeep. 
 
 
 ## 6. Reflection
