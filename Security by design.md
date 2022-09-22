@@ -24,7 +24,7 @@ In my app I used Google as said third party.
 
 That workflow would look something like this:
 
-![image](https://developers.google.com/identity/protocols/oauth2/images/flows/implicit.png)
+![image](https://user-images.githubusercontent.com/46562627/191809734-66c3edff-a220-4374-8572-14e5532d2613.png)
 
 After logging in to the google cloud platform, I was easily able to create the credentials needed for the [Laravel Socialite driver](https://laravel.com/docs/9.x/socialite):
 
@@ -32,7 +32,7 @@ After logging in to the google cloud platform, I was easily able to create the c
 
 After fumbling around with the callback URI for a bit, the third party login was functional:
 
-![image](https://user-images.githubusercontent.com/46562627/171625068-f2a2dc16-d3ef-4924-8c8e-d74681268480.png)
+![image](https://user-images.githubusercontent.com/46562627/191809529-eeb2965a-d215-4e48-baf9-2ff323596b06.png)
 ![image](https://user-images.githubusercontent.com/46562627/171625197-f7bd2213-0a83-4ae8-ae69-6d7b17643774.png)
 
 And the user is logged in or registered and recieves a [Laravel Sanctum accessToken](https://laravel.com/docs/9.x/sanctum) with the fitting scopes for the user:
