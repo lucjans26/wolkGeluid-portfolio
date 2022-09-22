@@ -19,6 +19,7 @@ As mentioned before, designing a well thought out architecture is essential to m
 
 
 ## 3. Messaging
+To make sure all the microservices are reliably and asynchrously connected messaging needs to be introduced to the mix. This also makes sure that the load can be evenly spread and that requests are never lost internally when for example a microservice (temporarily) goes down. Furthermore a message broker makes it possible to have just a singular point of communication to the microservices because the services can "listen" to just the topics that are essential to them. This also brings with it the benefit that the architecture is easily expendable
 
 ## 4. Monitoring
 
