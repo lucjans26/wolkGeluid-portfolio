@@ -26,9 +26,9 @@ That workflow would look something like this:
 
 ![image](https://developers.google.com/identity/protocols/oauth2/images/flows/implicit.png)
 
-After logging in to the google cloud platform, I was easily able to create the credentials needed for the [Laravel Socialite driver](https://laravel.com/docs/9.x/socialite) driver:
+After logging in to the google cloud platform, I was easily able to create the credentials needed for the [Laravel Socialite driver](https://laravel.com/docs/9.x/socialite):
 
-![image](https://user-images.githubusercontent.com/46562627/171624018-4c02fccc-6028-433b-8f08-f1cdde7f4bbd.png)
+![image](https://user-images.githubusercontent.com/46562627/191803868-6114039c-88c3-4a3d-a812-f1a9762d63d4.png)
 
 After fumbling around with the callback URI for a bit, the third party login was functional:
 
