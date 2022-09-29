@@ -41,7 +41,7 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 | LO3 |⚪|   |   |   |   | 
 | LO4 |  |⚪|   |   |   |
 | LO5 |  |⚪|   |   |   |
-| LO6 |⚪|   |   |   |   |
+| LO6 |  |⚪|   |   |   |
 | LO7 |  |⚪|   |   |   |
 | LO8 |⚪|   |   |   |   |
 
