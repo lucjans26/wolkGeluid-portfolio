@@ -31,6 +31,40 @@ jobs:
 ### 2.2 PHPUnit
 [PHPUnit](https://phpunit.de/) is a programmer-oriented trsting framework for PHP. Laravel offer out of the box support for PHPunit testing. A test workflow can be used to prevent merging or depolying broken commits.
 
+```yaml
+on: push
+name: Test
+jobs:
+  phpunit:
+    runs-on: ubuntu-latest
+    container:
+      image: kirschbaumdevelopment/laravel-test-runner:8.1
+
+    services:
+      mysql:
+        image: mysql:latest
+        env:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_DATABASE: test
+        ports:
+          - 33306:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+
+      - name: Install composer dependencies
+        run: composer install --no-scripts
+
+      - name: Prepare Laravel Application
+        run: cp .env.ci .env && php artisan key:generate
+
+      - name: Run Testsuite
+        run: vendor/bin/phpunit tests/
+```
+
 ### 2.3 Sonarcloud
 To check the quality of my code, I added a [Sonarcloud](https://sonarcloud.io/) workflow to my repositories. Sonarcloud checks the codebase not only for code smells and bugs, but also security hotspots and vulnerabilities. Using Sonarcloud can give a team a great insight into their code quality and can help prevent merging broken branches.
 
