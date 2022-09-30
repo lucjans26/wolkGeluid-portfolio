@@ -39,10 +39,10 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 | LO1 |⚪|   |   |   |   |
 | LO2 |⚪|   |   |   |   |
 | LO3 |⚪|   |   |   |   | 
-| LO4 |  |⚪|   |   |   |
-| LO5 |  |⚪|   |   |   |
-| LO6 |  |⚪|   |   |   |
-| LO7 |  |⚪|   |   |   |
+| LO4 |   |⚪|   |   |   |
+| LO5 |   |⚪|   |   |   |
+| LO6 |   |   |⚪|   |   |
+| LO7 |   |⚪|   |   |   |
 | LO8 |⚪|   |   |   |   |
 
 #### LO1 Developing and Deployment of Enterprise Software as a Professional
