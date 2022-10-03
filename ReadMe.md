@@ -37,7 +37,7 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 |     |Undefined|Orienting|Beginning|Proficient|Advanced| 
 |-----|:-------:|:-------:|:-------:|:--------:|:-------:|
 | LO1 |⚪|   |   |   |   |
-| LO2 |⚪|   |   |   |   |
+| LO2 |   |⚪|   |   |   |
 | LO3 |⚪|   |   |   |   | 
 | LO4 |   |⚪|   |   |   |
 | LO5 |   |⚪|   |   |   |
