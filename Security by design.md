@@ -56,5 +56,26 @@ Route::get(ARTIST_ROUTE, [ArtistController::class, 'getArtist'])->middleware(['a
 
 For the current scale of this application, the token scopes and RBAC are sufficient. However in the future it would be essential to be prepared to deal with way more roles than the current application supports. This could be done in multiple ways. Within Laravel it could be handled within the controller which requires more logic which in turn is harder to upkeep. 
 
+## 6. Risk Analysis
+A risk analysis is a way to document internal and/or external risk factors within an organisation or project. In this analysis a chance of the risk becoming a reality is checked against  the possible effect this situation may cause. Based on this you can prioritize certain risks to mitigate.
+After all of this a mitigation strategy or plan can be set up to determine how certai risks can be removed or reduced to acceptable levels.
 
-## 6. Reflection
+### 6.1 Risks, impact and probability
+As mentioned above, firstly the possible risks have to be determined.
+![image](https://user-images.githubusercontent.com/46562627/198877604-adcd36ce-19f3-4073-b5dd-c05ab506e14a.png)
+
+After establishing the risks, the impact and probability can be determined using a pre-determined scale.
+![image](https://user-images.githubusercontent.com/46562627/198877676-526b9048-6116-410c-a108-a8ca52333a79.png)
+
+### 6.2 Risk Level
+Multiplying the impact with the probability will result in a risk level. This level can then be used to prioritize mitigations.
+![image](https://user-images.githubusercontent.com/46562627/198877758-3791c57e-8ee1-4d67-a6c1-a485f367b6ea.png)
+![image](https://user-images.githubusercontent.com/46562627/198877745-786ea1e9-339b-4833-a4b8-3d3a82d13c55.png)
+
+### 6.3 Mitigation
+Finally the mitigations for the threats can be determined.
+
+![image](https://user-images.githubusercontent.com/46562627/198877791-dc9e0171-3a12-429a-bc5c-3cf52a35bbfb.png)
+
+
+## 7. Reflection
