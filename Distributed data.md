@@ -25,6 +25,15 @@ A database can be defines based on the two CAP garuentees it provides:
 
 To be able to choose a fitting database solution a choise has to be made with consideration to the applications needs.
 
+Since consistancy isn't the main focus for this application, and partitioning is needed to be able to create a distributed system, an AP database is needed. 
+
+Cassandra is a perfect example of an AP database since it is highly available which is important for a user focussed application whe consistancy isnt the main goal. Cassandra consists of mulple nots in a system and is peer-to-peer based. In every node multiple replica's exit. Because of this design it means that there is no single master note which would mean a single point of failure. The replication factor in a database determines into how many nodes the data is replicated as is visible in this picture.
+
+![image](https://user-images.githubusercontent.com/46562627/201076791-3991a3e7-5ba8-498e-afd6-24d3ae580b29.png)
+
+In the case that the nodes do not update correctly and the data is not consistent, data will still be returned to the user. This means that the user could get a music file with for example outdated metadata or an artist bio which hasn't been updated yet. For a user this is rarely a problem if the main goal is just listening or uploading music. The only case in this the missing consitancy could be a problem is when a resourcelocation isn't updated and the user recieves an old resourcelocation which snt available anymore. However when a resource is changed the main goal would be to make the old resource unavailable anyway so the main purpose has been fufilled. Due to eventual consistency all nodes should eventually have the same data. 
+
+
 ## 4. Event Sourcing
 Within music streaming services it is really common that songs or even entire albums have to be changed up multiple times. Sometimes to release diffrent versions but sometimes its as simple as having to change a title or some metadata. Having people do this makes it really hard to audit it something goes wrong, it's really hard to trace back the data. Therefore [event sourcing](https://martinfowler.com/eaaDev/EventSourcing.html) is a good way to create an audit log. It logs everything that happens to a certain record or entry. The result of retrieving a certain record is therefore never based on a single field or record but a "sum" of all the transactions.
 
