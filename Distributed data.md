@@ -4,7 +4,7 @@ You are aware of specific data requirements for enterprise systems. You apply be
 ## 2. GDPR 
 It is important to be really careful with personal data. The first step to this is to prevent saving personal data that isn't neccesary in the first place. 
 
-## 3. CAP Theorem
+## 3. CAP Theorem and database choice
 The CAP theorem (Brewer's theorem) states that distributed data can only garuentee 2 of 3 elements with a single system.
 
 - **Consistency:** Every client has the exact same (version of) data or an error
@@ -31,7 +31,7 @@ Cassandra is a perfect example of an AP database since it is highly available wh
 
 ![image](https://user-images.githubusercontent.com/46562627/201076791-3991a3e7-5ba8-498e-afd6-24d3ae580b29.png)
 
-In the case that the nodes do not update correctly and the data is not consistent, data will still be returned to the user. This means that the user could get a music file with for example outdated metadata or an artist bio which hasn't been updated yet. For a user this is rarely a problem if the main goal is just listening or uploading music. The only case in this the missing consitancy could be a problem is when a resourcelocation isn't updated and the user recieves an old resourcelocation which snt available anymore. However when a resource is changed the main goal would be to make the old resource unavailable anyway so the main purpose has been fufilled. Due to eventual consistency all nodes should eventually have the same data. 
+In the case that the nodes do not update correctly and the data is not consistent, data will still be returned to the user. This means that the user could get a music file with for example outdated metadata or an artist bio which hasn't been updated yet. For a user this is rarely a problem if the main goal is just listening or uploading music. The only case in this the missing consitancy could be a problem is when a resourcelocation isn't updated and the user recieves an old resourcelocation which isn't available anymore. However when a resource is changed the main goal would be to make the old resource unavailable anyway so the main purpose has been fufilled. Due to eventual consistency all nodes should eventually have the same data. 
 
 
 ## 4. Event Sourcing
