@@ -141,8 +141,14 @@ jobs:
 
 ## 4. Branch Protection
 
-## 5. Status badges
+## 4. Status badges
+To give the developers working on a project a quick insight into the workflow status of a project, [workflow status badges](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge) can be added to the readme.md.
 
-## 6. Postman
+![image](https://user-images.githubusercontent.com/46562627/173389970-481b6e76-7721-4c95-9db4-08bd52f64e16.png)
 
+## 5. Postman
+During the development process, especially when building an API, a way to test manually can be really helpful using a client. However it saves a lot of time if every developer within a team has access to the same information to test with and that all endpoints are documented with example data and responses.
+For this a team can be created in [Postman](https://www.postman.com/). Within this team everybody has access to previously made requests, saved requests and responses, and if documented well withon postman gives the team the ability to convert a collection straight into an API specification.
+
+![image](https://user-images.githubusercontent.com/46562627/173391926-83919ecc-1b04-403e-a473-793c7ec077a3.png)
 ## 7. Reflection
