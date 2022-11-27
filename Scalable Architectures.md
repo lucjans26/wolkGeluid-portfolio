@@ -93,6 +93,23 @@ public function handle()
 ### 3.3 Testing
 In [this video](https://drive.google.com/file/d/15o4RT-kqFTT3HWd8W-6IMcL8IFLwLDAX/view?usp=sharing) you can see what happens during a longin. That a user is created in the auth service and that a message is produced. This message is than used by the microservices to register the accesstoken internally to authenticate withing the microservice without them needing thier own authentication methods or connection to the authService database.
 
-## 4. Monitoring
+## 4. Gateway
+A gateway is a software pattern that sits in front of a group of microservices to faciliate requests and delivery of data and services. It functions as a single entrypoint to a complete architecture and apply policies to determine abilities and behaviour  for the group of microservices to determine avalibility and behaviour.
 
-## 5. Reflection
+### 4.1 Setup
+For my architecture I chose to create an Ocelot (.Net) gateway. Creating a basic gateway using Ocelot is fairly mundane. After creating a new API Project in visual studio we can install the Ocelot NuGet package.
+
+![image](https://user-images.githubusercontent.com/46562627/204158626-4ea5bb4f-8dc2-4f77-9909-0c7874169d25.png)
+
+After this we can add the necessary methods in the Program.cs. These methods handle starting the gateway correctly. After that we can setup the ocelot.json routing file.
+
+![image](https://user-images.githubusercontent.com/46562627/204159114-4611b4b8-52c9-4f80-8e7b-f23aed6541ec.png)
+
+In this example we can see the setup for a single endpoint in the song service. In this case the endpoint a basically identical. Everything related to "downstream" handles where the request will eventually go to. In the example we can see that the request wil go to localhost, port 8080, to the /api.auth/google/redirect endpoint. Any request that goes to the gateway endpoint (upstream) /api/auth/google will be sent to the downstream. The gateway accepts just the get method in this case, but the array may contain any method type.
+
+### 4.1 Test
+To see the functionality of the gateway i've made [this video](https://drive.google.com/file/d/12soJ4q70z8mJMzntvOjRYcOfjrzZoVZI/view?usp=sharing). In the video you can see that all my microservices and the gateway are running. The gateway is running on port 5000 as configured in the settings, and when making a request to the gateway I get a response from the authentication service on port 8080 where I perform a login.
+
+## 5. Monitoring
+
+## 6. Reflection
