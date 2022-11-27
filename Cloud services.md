@@ -153,3 +153,55 @@ Besides rest data pricing we also have to keep in mind the [pricing](https://azu
 
 Lastly you also have to keep in mind that pricing will differ per chosen region. Choosing a cheaper region might come with a result of bigger latency. If a worldwide release is part of the plan it might be worth while to figure out if every region needs it's own storage (which also requires synching at additional cost) or whether the latency is acceptable.
 Within this project I chose to stay with the cheapest configuration to make as much use as possible of my $125 through my fontys account
+
+## 4. Azure Kubernetes Service
+Azure Kubernetes Service (AKS) offers a quick way to start developing cloud-native apps in Azure of datacenter. It unifiers the management en governance for Kubernetes clusters. Together with Azure security, identity, cost management, and migration services, it provides a really complete package.
+
+### 4.1 Setup
+Multiple setups need to be completed to garuentee a fully functional Kubernetes deployment.
+
+#### 4.1.1 Helm
+Helm is a tool that helps you manage Kubernetes Applications, a type of apt or homebrew for Kubernetes. Helm Charts help define, install and upgrade Kubernetes applications. Charts in turn provide repeatable application installation and serve as a single point of authority.
+
+After installation of Helm we can user ```Helm create helm``` command to create the necessary config files in the repository in a folder named helm.
+
+![image](https://user-images.githubusercontent.com/46562627/204155550-113dfcb4-8f1f-4fd3-9314-9927056a9898.png)
+
+The most important elements for us to look at here is the values.yml. This file holds many of the values for the config of our kubernetes cluster. Think about the image repository, the name of the service in the cluster, of the port on which the service is running. 
+The deployment.yaml might also come in handy when dealing with issues in deployment. For example on which path of the service the liveliness prob is run to test if the service is up and running correctly.
+
+#### 4.1.2 Pipeline
+The easiest way to get a project deployed on an Azure Kubernetes Cluster is to pull it from the Azure Container Registy. Azures answer to for example Dockerhub. Due to github being our choice of version control system, this has to be done through Github actions. In theory thw project would be built in a github actions pipeline and pushed to the Azure Container Registry using the right credentials. Unfortunately due to our use of an Azure student subscription we don't have access to the nessecary credentials. Therefore we have chose to have paralell remotes in Github and Azure DevOps. This isn't an ideal long term solution, but it should work in the short term while we figure out a solution. 
+
+![image](https://user-images.githubusercontent.com/46562627/204156229-e57d3e3d-b331-4d2f-a753-98f76f229203.png)
+
+After the repo was initialised in Azure DevOps, we can let Azure help et up a build pipeline.
+
+![image](https://user-images.githubusercontent.com/46562627/204156924-4ab78d39-73ce-40cf-bc9f-4f72330f7dc9.png)
+
+We can choose a pre configured option. Due to the fact that we made a dockerfile and use docker for testing, we just want to make a build and push it to the Container Registry.
+
+![image](https://user-images.githubusercontent.com/46562627/204156970-697d2ffe-e3d4-439a-aa6e-bb5f5506a533.png)
+
+After choosing our subscription and container registry the pipeline yaml is created. In the routeService project, the pipeline is set to run on every commit to the main branch. The Pipeline builds the project and creates an artifact that can be used to deploy the service to Kubernetes.
+
+![image](https://user-images.githubusercontent.com/46562627/204157105-bc328b78-b0cb-40b3-961d-20dad4275442.png)
+
+On the release page we can setup that every time a new package is pushed the service is deployed to the Kubernetes Cluser.
+
+![image](https://user-images.githubusercontent.com/46562627/204157183-774ffed0-c25b-4dc8-b259-7bbb475e4625.png)
+
+This all combined makes it really quick to deploy new versions of projects of services with just a single commit.  
+
+
+#### 4.1.3 Lens *optional* 
+Lens is a tool which was developed to provide full situational awarenes for everything that runs in Kubernetes. We can simply add our cluster using the provided options and our Kubeconfig.
+
+![image](https://user-images.githubusercontent.com/46562627/204157514-e9915b98-575e-4292-91b6-9b150f56a887.png)
+
+After that we can easily get a good insight on what our cluster is doing and any issues that arise.
+
+
+### 2.2 Test
+
+
