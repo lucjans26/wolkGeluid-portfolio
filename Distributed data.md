@@ -98,3 +98,58 @@ And after deleting the song, another event should've been added:
 ![image](https://user-images.githubusercontent.com/46562627/199091908-ee9ebd63-602b-4778-aeef-1ca115a46053.png)
 
 ![image](https://user-images.githubusercontent.com/46562627/199087441-57e8da60-49c0-4df2-9b4a-fb506e74ab9a.png)
+
+
+## 5. NoSQL Implementation
+Due to the limitations of the laravel framework and the PHP language, no up-to-date natively supported cassandra package is available. Due to time constraints the choice was made tot use MongoDB as a substitute NoSQL database.
+
+### 5.1 Setup
+Setup is very similar to the azure file storage. I create an Azure Mongo cosmosDB in azure within the already created resourcegroup. After that we can get the connectionstring from the setting that can be used in the service configuration.
+
+![image](https://user-images.githubusercontent.com/46562627/205496276-2b382a8c-c4fc-4eb2-bbaf-03ab55dfab98.png)
+
+After that, the [MongoDB query builder package](https://github.com/jenssegers/laravel-mongodb) can be added to the project using the `composer require jenssegers/mongodb` command. Following this, the configs for the database can be added to the project. These simply make sure that the system can connect to the database.
+
+Within the model which we want to make use of the database, a connection property is added, so that Laravel understands which database connection to use. The database migrations make sure the table with the proper fields is created in the Mongo database.
+
+### 5.2 Implementation
+The model is almost the same as the original song model. The only change is the connection field within the model, connecting it to the Mongo database
+```php
+class Song extends Model
+{
+    protected $fillable = [
+        '_id',
+        'name',
+        'album_id',
+        'artist_id',
+        'genre',
+        'resourceLocation',
+        'releaseDate',
+    ];
+
+    protected $table = "song";
+    protected $connection = 'mongodb';
+}
+```
+
+The uploadSong method doesn't actually need to change at all. But to demonstrate the implementation, an example is provided regardless. Laravel makes use of it's [Eloquent ORM](https://laravel.com/docs/9.x/eloquent). This is Laravel's answer to Microsoft's entity framework or Spring's JPA. The save method creates a query to create a record in the database. Through the connection attribute in the song model, Laravel knows to use the Mongo package to create the query and run it against the Mongo database. The mongo package also takes responsibility for converting necessary values to its correct type, like for example the timestamps.
+
+```php
+$path = Storage::disk('azure-file-storage')->put("" ,$request->file('song'));
+
+            $song = new Song([
+                'name' => $validateData['title'],
+                'genre' => $validateData['genre'],
+                'album_id' => $validateData['album_id'],
+                'artist_id' => $validateData['artist_id'],
+                'resourceLocation' => $path,
+                'releaseDate' => now(),
+            ]);
+
+            $song->save();
+```
+
+### 5.3 Test
+We can simply test this out by uploading a song. After the song has been uploaded and upload Song record should have been created:
+
+![image](https://user-images.githubusercontent.com/46562627/205497286-75d774e2-29f8-4cde-9d6d-b885101f6167.png)
