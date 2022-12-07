@@ -31,7 +31,7 @@ The tax office is a government body that is responsible for levying and collecti
 
 Within the country, a problem of traffic jams has arisen over the years that does not seem to be resolving itself. For this reason, the state has determined that road pricing can be used to reduce congestion on the road network. The state hopes to accomplish this by passing on congestion costs down to the driver and thereby making a driver think better about the use of a vehicle. This variable charging method makes it possible to charge different rates in certain areas or certain hours in order to be able to guide traffic to some extent.
 
-## 5. Self Reflection
+## 6. Self Reflection
 In this chapter I reflect on my own skill levels. Underneath is a table with the given learning outcomes plotted against what skill level i think i have myself on that outcome. Under de table you will find a briefly described explaination per learning outcome
 
 |     |Undefined|Orienting|Beginning|Proficient|Advanced| 
@@ -53,3 +53,10 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 #### LO6 Cloud Services
 #### LO7 Security By Design
 #### LO8 Distributed Data
+
+## 7. Plan of Attack
+- Scalable architectures: messaging in groepsproject, monitoring system, Validatie non-functionals (Groepsproject)
+- DevOps: branch protection, testing (Unit, Integration, E2E)
+- Security by design: Acunetix testrapport -> Mitigatierapport, GDPR checklist
+- Context based research: Onderzoek emerging trends
+- Preparation for life long learning: stage documenteren
