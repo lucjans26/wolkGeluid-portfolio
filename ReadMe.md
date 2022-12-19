@@ -57,6 +57,6 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 ## 7. Plan of Attack
 - Scalable architectures: messaging in groepsproject, monitoring system, Validatie non-functionals (Groepsproject)
 - DevOps: branch protection, testing (Unit, Integration, E2E)
-- Security by design: Acunetix testrapport -> Mitigatierapport, GDPR checklist
+- Security by design: Acunetix testrapport -> Mitigatierapport, GDPR checklist (Right to be forgotten)
 - Context based research: Onderzoek emerging trends
 - Preparation for life long learning: stage documenteren
