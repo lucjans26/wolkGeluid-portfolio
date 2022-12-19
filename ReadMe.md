@@ -59,4 +59,4 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 - DevOps: branch protection, testing (Unit, Integration, E2E)
 - Security by design: Acunetix testrapport -> Mitigatierapport, GDPR checklist (Right to be forgotten)
 - Context based research: Onderzoek emerging trends
-- Preparation for life long learning: stage documenteren
+- Preparation for life long learning: ~~stage documenteren~~
