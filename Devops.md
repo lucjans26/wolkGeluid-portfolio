@@ -136,19 +136,63 @@ jobs:
           push: true
           tags: lucjans26/wolkgeluid-monolith:latest
 ```
+## 3. Testing
+Testing is an important part of the software engineering process because it helps ensure that a software application or system meets its requirements and functions as intended. In the context of continuous integration/continuous delivery (CI/CD), testing plays a crucial role because it helps to verify that code changes do not introduce new defects or break existing functionality. By performing testing at various stages of the CI/CD pipeline, developers can catch and fix issues early on, which helps to reduce the risk of errors and improve the overall quality of the software. Additionally, testing can help to ensure that the software is ready for deployment by verifying that it meets the necessary performance, security, and other requirements.
 
-## 3. SonarCloud
+![image](https://user-images.githubusercontent.com/46562627/208777972-ed4e35c6-78f4-4c44-bb6f-84a229108f83.png)
 
-## 4. Branch Protection
 
-## 4. Status badges
+
+
+### 3.1 Unit Testing
+Unit testing is a testing technique that involves testing individual units or components (like for example methods, other business logic, or front-end units) of a software application in isolation from the rest of the application. It is important because it helps to ensure that individual units or components of the application are working as intended and are free of defects, which can help to improve the overall reliability and quality of the software.
+Unit testing is usually the most earliest level of testing. It is quick and inexpensive to do.
+
+I implemented unit testing by writing laravel unit tests which are run using [PhpUnit](https://phpunit.de/), a PHP testing framework. The unit tests are written using the AAA pattern to keep the tests uniform and make use of database transactions so that the production database can be used for the most consistent testing. After the tests end, the transactions are rolled back. It is also possible to use an in-memory database using Laravel. 
+
+![image](https://user-images.githubusercontent.com/46562627/208780079-9155ea07-b33b-41b3-912e-7cf8d47f4245.png)
+
+Later these unit tests can be run in combination with [Xdebug](https://xdebug.org/), a PHP extension which is mostly usefull for code coverage analysis to show which parts of your code base are executed when running unit tests with PHPUnit. However this requires a lot of setting up which I haven't been able to get working as of now.
+
+### 3.2 Integration Testing
+Integration testing is a software testing technique that involves testing how different units or components of a software application work together. It is important because it helps to ensure that the integration between different units or components is working as intended, and that the application as a whole is functioning correctly. This is especially important because issues with integration can be difficult to detect and fix if they are not caught early on in the development process.
+It is more complete than unit testing, as it tests the integration between different parts of the software. However, it can be more time-consuming and resource-intensive to perform than unit testing, as it may require setting up and configuring multiple units or components.
+
+### 3.3 End-to-end testing
+End-to-end (E2E) testing (or acceptance testing) is a software testing technique that involves testing a complete workflow of a software application, from start to finish, to ensure that it is functioning correctly. It is important because it helps to ensure that the software application is working correctly from the user's perspective, and that all the various components and systems are working together seamlessly. By performing end-to-end testing, a team can catch and fix issues that may not have been detected by unit or integration testing, and can ensure that the software is completely ready for deployment. This is especially important for software applications thathave a high level of user interaction, as defects or issues with these types of applications can have serious consequences.
+This is the most complex and most expensive form of testing, and should really be saved the the most critical components.
+
+E2E testing was done using [Cypress](https://www.cypress.io/), a fast, easy and reliable javascript automated testing framework. Cypress makes it really easy to install and set up.
+
+![image](https://user-images.githubusercontent.com/46562627/208780776-be167fa2-25ad-4a8c-8848-52026b25289c.png)
+
+Using the experimental [Cypress Studio](https://docs.cypress.io/guides/references/cypress-studio) you can really easily walk through your application while Cypress watches over your shoulder. It registers your every move and will be able to test them again in the future. If the flow fails of requests aren't succesfully completed (which in turn could also break the flow), the tests fail.
+
+![image](https://user-images.githubusercontent.com/46562627/208781603-c420a3d7-45c5-4372-8367-48bdb568feec.png)
+
+## 4. SonarCloud
+
+## 5. Branch Protection
+To prevent merging broken branches, I added branch protection rules. In this example the protection from the main branch requires any merge to pass the testing workflow and the Sonarcloud quality control gate. This means that all tests must pass and the coverage must be at least 80% (or other as defined in sonarcloud).
+
+![image](https://user-images.githubusercontent.com/46562627/208779023-3aa92942-bc45-4d03-87a8-372a0c6038ca.png)
+
+## 6. Status badges
 To give the developers working on a project a quick insight into the workflow status of a project, [workflow status badges](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge) can be added to the readme.md.
 
 ![image](https://user-images.githubusercontent.com/46562627/173389970-481b6e76-7721-4c95-9db4-08bd52f64e16.png)
 
-## 5. Postman
+## 7. Postman
 During the development process, especially when building an API, a way to test manually can be really helpful using a client. However it saves a lot of time if every developer within a team has access to the same information to test with and that all endpoints are documented with example data and responses.
 For this a team can be created in [Postman](https://www.postman.com/). Within this team everybody has access to previously made requests, saved requests and responses, and if documented well withon postman gives the team the ability to convert a collection straight into an API specification.
 
 ![image](https://user-images.githubusercontent.com/46562627/173391926-83919ecc-1b04-403e-a473-793c7ec077a3.png)
-## 7. Reflection
+
+## 8. Reflection
+I believe I have made significant efforts to set up environments and tools that support the software development process, and to automate as much of the development process as possible in order to increase the development lifecycle and improve software quality.
+
+I have implemented a pipeline using GitHub Actions that includes several different steps, such as linting the code, running unit tests, performing Sonarcloud analysis, and creating new Docker images. These steps are designed to catch and address issues early on in the development process, which can help to ensure that the software is of high quality and free of defects.
+
+In addition, I have implemented different workflows for different branches in order to build Docker images that are either ready for release or contain release candidates. This can help to ensure that the software is properly tested and ready for deployment.
+
+Overall, I have put a lot of thought and effort into setting up a robust and effective software development process, and into automating as muchas possible in order to improve efficiency and quality. This is a valuable and important goal, and the work that I have done will help a lot in my upcoming internship and future as a software engineer.
