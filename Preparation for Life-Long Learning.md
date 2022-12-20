@@ -7,6 +7,12 @@ For an internship to have a high chance of succeeding, it is important to choose
 
 ### 2.1 Sector Choice
 I believe that choosing the right company starts at finding a sector that suits you. Luckily I have a really clear view of the sector that interests me; logistics and (passenger) transport! Being born and raised in a family taxi business, and having and uncle and grandfather having worked for years as international truck drivers, the sector of logistics and transportation was basically spoonfed to me.
+Furthermore, the sector of transport and logistics interests me a lot because of multiple key points:
+- Impacful work: The sector plays a critical role in the economy, and software is an important part in streamlining the process. This can have great impact on efficiency of transportation networks or supply chain management which benefits businesses and consumers alike.
+- Complex and challenging problems: The transport and logistics sector involves complex systems and processes. Software engineering in this sector can involve tackling challenging problems that require creative and innovative solutions.
+- Variety: this sector includes a wide range of sub-industries, such as air transportation, trucking, warehousing, and logistics management. This means that there is always something new to learn or discover besides the obvious techincal side.
+- Interests: working as a software engineer in the transport and logistics sector can allow me to combine my love for technology with my interests in different types of transportation (like cars, trucks, aeroplanes, motorcycles, and more), and to make a meaningful and impactful contribution to these industries.
+
 After doing my internship at [RYSK-IT](https://www.rysk-it.net/) creating a routing API, and after that working on helping developing the next generation of passenger transport dispatching systems, I got my confirmation that this was what I liked doing and that this was the sector I wanted to stick to.
 
 ### 2.2 Company Choice
