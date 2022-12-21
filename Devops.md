@@ -170,6 +170,8 @@ Using the experimental [Cypress Studio](https://docs.cypress.io/guides/reference
 
 ![image](https://user-images.githubusercontent.com/46562627/208781603-c420a3d7-45c5-4372-8367-48bdb568feec.png)
 
+The caveat of course is that within a microservice architecture everything is discoupled, which means that within the pipeline there is no back-end to test against. Therefore a testing enviroment should be created so that the testing can be done against this. Within in project, with limited resources and time, the production back-end will be used to test agains as a proof of concept.
+
 ## 4. SonarCloud
 
 ## 5. Branch Protection
