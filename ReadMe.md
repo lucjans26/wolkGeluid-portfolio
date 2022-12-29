@@ -37,10 +37,10 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 |     |Undefined|Orienting|Beginning|Proficient|Advanced| 
 |-----|:-------:|:-------:|:-------:|:--------:|:-------:|
 | LO1 |   |   |⚪|   |   |
-| LO2 |   |   |⚪|   |   |
+| LO2 |   |   |   |⚪|   |
 | LO3 |   |   |   |⚪|   | 
 | LO4 |   |   |⚪|   |   |
-| LO5 |   |   |⚪|   |   |
+| LO5 |   |   |   |⚪|   |
 | LO6 |   |   |   |⚪|   |
 | LO7 |   |   |⚪|   |   |
 | LO8 |   |   |  |⚪|   |
@@ -58,5 +58,5 @@ In this chapter I reflect on my own skill levels. Underneath is a table with the
 - Scalable architectures: ~~messaging in groepsproject~~, monitoring system, Validatie non-functionals (Groepsproject)
 - DevOps: ~~branch protection~~, testing (~~Unit~~, Integration, ~~E2E~~)
 - Security by design: Acunetix testrapport -> Mitigatierapport, GDPR checklist (Right to be forgotten)
-- Context based research: Onderzoek emerging trends
+- Context based research: ~~Onderzoek emerging trends~~
 - Preparation for life long learning: ~~stage documenteren~~
