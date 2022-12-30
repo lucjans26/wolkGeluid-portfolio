@@ -1,8 +1,25 @@
 ## 1. Learning outcome
 You investigate how to minimize security risks for your application, and you incorporate best practices in your whole software development process. 
 
-## 2. Sonarcube 
-To be implemented
+## 2. GDPR 
+[GDPR](https://gdpr.eu/) is a law that protects the personal data and privacy of people in the EU and EEA, and also applies to the export of personal data outside of those regions. It gives people more control over their personal data and makes it easier for businesses to follow data protection rules within the EU. GDPR provides a complete [checklist](https://gdpr.eu/checklist/) which can be used to build a GDPR compliant system.
+
+![image](https://user-images.githubusercontent.com/46562627/210109150-aaee9429-9049-4c52-8b6c-787fefa1fd94.png)
+
+### 2.1 Right to be forgotten
+[The right to erasure](https://gdpr-info.eu/art-17-gdpr/), also known as the "right to be forgotten," is part of the GDPR that gives individuals the right to request the deletion or removal of their personal data where there is no good reason for its continued existance. This right is important because it allows users to have more control over their personal data and to request that their data be erased when it is no longer necessary for the reason for which it was collected.
+
+For example, if a user no longer wishes to use a particular service or website, they have the right to request that the company erase any personal data they have collected about them. This is particularly relevant in the context of online services, where personal data can be collected and stored indefinitely. The right to erasure helps ensure that personal data is not kept for longer than is necessary, and that individuals have the ability to request that their data be erased when they no longer want it to be used.
+
+The right to be forgotten is a perfect example for implementation, because it runs throught the entire microservice architecture. 
+
+### 2.2 Implementation
+The implementation is quite convoluted but is mostly comes down the the following application flow:
+
+![image](https://user-images.githubusercontent.com/46562627/210110487-0165ed1c-5792-4591-aea9-5504608b9dd4.png)
+
+In the following [video](https://drive.google.com/file/d/1oCtyQiwhsjAHpnWZI2-28eisn8OgQvnW/view?usp=sharing), a demonstration is shown on the implementation of the right to be forgotten in my system.
+
 
 ## 3. Sonarlint
 From the start of my development process, my IDE (phpStorm) has been equipped with [Sonarlint](https://www.sonarsource.com/products/sonarlint/). This free and open source extension helps identify and fix quality and security issues in real time during development. This makes sure that code is written cleanly and securely from the start and prevents having to change major issues in the future after a full scan. Besides just pointing out errors, it also explains why certain issues are issues in the first place so these can be avoided in the future.
