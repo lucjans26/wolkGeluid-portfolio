@@ -24,6 +24,11 @@ Throughout this semester we are working on different projects. On one side we ar
 Besides this we are working on an individual project. This gives us the oppertunity to focus more explicitly on specific learning outcomes.
 
 ### 5.1 Indiviual
+At the moment there are a number of streaming services available for streaming music. These services provide access to to music, as well as the possibility to upload music for others to hear. Due to the participation of major artists, many people use a subscription to listen to music without, for example, advertisements.
+
+Within the hardcore fitness community, music is central to many people's workouts. Although many people listen to pop music, there is also a large group that enjoys listening to heavier music, hardstyle. Although this is a wide genre in itself, there is a subgenre that likes to make covers or use samples of existing pop songs. Although this often falls under fair use, many platforms decide to remove these songs out of fear of backlash from the original artists.
+
+Wolkgeluid offers a music platform that is completely centered around this type of music and encourages it. This way everyone has the best workout!
 
 
 ### 5.2 Group
