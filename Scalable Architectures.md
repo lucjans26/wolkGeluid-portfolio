@@ -111,5 +111,54 @@ In this example we can see the setup for a single endpoint in the song service. 
 To see the functionality of the gateway i've made [this video](https://drive.google.com/file/d/12soJ4q70z8mJMzntvOjRYcOfjrzZoVZI/view?usp=sharing). In the video you can see that all my microservices and the gateway are running. The gateway is running on port 5000 as configured in the settings, and when making a request to the gateway I get a response from the authentication service on port 8080 where I perform a login.
 
 ## 5. Monitoring
+Monitoring is the practice of tracking the performance and availability of a system. It involves collecting data about the system (CPU usage, response times, logs, availibility), analyzing that data, and using it to identify any issues or activities that may indicate problems. It is important for multiple reasons, it:
+- Helps ensure the system is performing well and meets the needs of the users
+- Can help identify and troubleshoot issues
+- Provide insight into how the system is being used to optimize it's performance and scalability
+
+### 5.1 Setup
+The monitoring system consists out of three seperate parts; the data "source" ([InfluxDB](https://www.influxdata.com/)), the data collection agent ([Telegraf](https://www.influxdata.com/time-series-platform/telegraf/)), and the visualisation tool ([Grafana](https://grafana.com/grafana/)).
+InfluxDB is a time series database that can be used to store and query large amounts of [time-series data](https://www.influxdata.com/what-is-time-series-data/). Telegraf is a data collection agent that can be used to collect metrics from various sources and write them to InfluxDB. Grafana is a visualization tool that can be used to create dashboards and graphs of the data stored in InfluxDB.
+
+![image](https://user-images.githubusercontent.com/46562627/210437384-1883a073-51ce-4423-89ee-147b0174328c.png)
+
+Firstly the InfluxDB is set up so that the data can be saved somewhere. This can easily be done with the InfluxDB docker image. 
+Next Telegraf needs to be set up. This too can be done using the proper docker image. However Telegraf does require some configuring. This mostly comes down to setting up the input (rabbitMQ) and the output (InfluxDB). The conatiner names can be used as the host names because they exist in the same docker network.
+
+```env
+[[outputs.influxdb]]
+  urls = ["http://influxdb-1:8086"]
+  database = "influx"
+  timeout = "5s"
+  username = "admin"
+  password = "admin"
+  
+[[inputs.rabbitmq]]
+  url = "http://rabbitmq:15672"
+  username = "guest"
+  password = "guest"
+```
+
+After this the most important part is to save the file using UTF-8 (non BOM) encoding or else the config file will not be valid....(This took me way too long to figure out)
+
+Finally we can simple deploy the Grafana image where we can connect the data source (InfluxDB).
+
+![image](https://user-images.githubusercontent.com/46562627/210438024-136b2b60-6a91-4ce1-93e5-d3e73de342dc.png)
+
+Of course and Azure monitor data source could also be configured. Unfortunately this is not possible with the student subscription that is provided by school. Were this possible, it could be implemented the same way rabbitMQ will be.
+
+### 5.2 Implementation
+It is important to monitor essetial metrics of a (sub)system. Monitoring metrics that aren't important wil result in a crowded screen that makes it hard to spot real problems. Therefore I chose to monitor the following metrics on the rabbitMQ deployment; Node status, Unacknowlegded (queued) messages, available system memory. 
+
+A few queued messages are to be expected. after all this is the point of using a message queue. But messages piling up mean that a service is not running as expected. In the following demonstration I paused one of the services so the messages are nog consumed from the queue. The metric is set up in a way that means that 0 - 4 queued messages result in a green indicator, 5 - 7 in an orange indicator, and 8+ result in a red indicator.
+
+![image](https://user-images.githubusercontent.com/46562627/210440052-9305cb13-69ff-4289-9dcd-e80938d2dea1.png)
+
+In the next demonstration I stopped the rabbitMQ container. This means that the node is essentially down. The node status metric is set up to turn red when the node is not running which result in the following visual:
+![image](https://user-images.githubusercontent.com/46562627/210440797-e3b416b3-0842-42cb-9167-e126ff97ee89.png)
+
+The available memory metric gives an indication on how the system is handeling the load. The guage gives a quick insight into the current status of the system. However at times it may be relevant to check back in time on what happened. For this a time series can added.
+
+Many more metrics and systems can be monitored, and the customisation is almost endless. However the form of monitoring and the setup should fit the needs of the system or application to be monitored.
 
 ## 6. Reflection
