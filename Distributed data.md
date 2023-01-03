@@ -153,3 +153,13 @@ $path = Storage::disk('azure-file-storage')->put("" ,$request->file('song'));
 We can simply test this out by uploading a song. After the song has been uploaded and upload Song record should have been created:
 
 ![image](https://user-images.githubusercontent.com/46562627/205497286-75d774e2-29f8-4cde-9d6d-b885101f6167.png)
+
+## 6. Reflection
+I have learned about the specific data requirements for enterprise systems and how to apply best practices for distributed data during the development process, including considering legal and ethical issues. I have learned about the General Data Protection Regulation (GDPR) and the importance of protecting personal data. 
+
+I also learned how to use the cap theorem to choose the right database considering the needs of the system and implemented a NoSQL database into my architecture. NoSQL databases are well-suited for distributed data applications and can be horizontally scaled. The choice of database depends on the application's needs and the trade-offs between consistency, availability, and partition tolerance.
+
+Furthermore I implemented Event sourcing, which is a useful technique for creating an audit log and traceability in the event of any issues. It logs every event that happens to a record and the result of retrieving a record is based on all events rather than a single field or record.
+
+Overall, I believe that I have a solid understanding about distributed data and how to implement this in an enterprise system to improve performance and availability. This is a valuable and important skill that will help a lot in my upcoming internship and future as a software engineer.
+
