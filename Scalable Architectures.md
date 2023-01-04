@@ -4,13 +4,48 @@ Besides functionality, you develop the architecture of enterprise software based
 ## 2. Non-Functionals
 Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly on the operation of a system rather than specific behaviour or functionalities. Accounting for implementation of NFR's need t be done during the system architecture design phase because of the architectural significance. My NFR's are as follows:
 
+### 2.1 Definition
 - **Speed**: All requests are handled within 2 seconds
-- **Security**: All requests are secured using SSL
 - **Security**: Passes quality gate in Sonarclould
 - **Security**: Tested by Acunetix and issues mitigated
 - **Reliability**: 96% uptime, 2.5% unexpected downtime, 1.5% expected downtime
 - **Closed Source**: The project will not be freely available on the version control service
 - **Data Integrity**: Personal data will be stored according to GDPR regulations
+
+### 2.2 Validation
+
+- **Speed**: All requests are handled within 2 seconds: Done through load testing using K6 on a Kubernetes deployment of the system
+- **Security**: Passes quality gate in Sonarclould: Can be checked withing Sonarcloud
+- **Security**: Tested by Acunetix and issues mitigated: Proof though Mitigation raport
+- **Reliability**: 96% uptime, 2.5% unexpected downtime, 1.5% expected downtime: (group project) Explain uptime of Azure Kubernetes Kluster
+- **Closed Source**: The project will not be freely available on the version control service: Explain private repositories
+- **Data Integrity**: Personal data will be stored according to GDPR regulations: Proof through right to be forgotten
+
+### 2.3 "Implementation"
+
+#### 2.3.1 Speed
+
+#### 2.3.2 Security (Sonarcloud)
+The quality gate can be used to help ensure that codebases meet certain security standards. For example, the quality gate could be configured to require that codebases have a certain level of test coverage, to ensure that all relevant code paths are being tested and that the code is properly tested for security vulnerabilities. It could also be configured to require that codebases have a certain level of security hardening, such as requiring the use of secure coding practices and the inclusion of security headers.
+
+#### 2.3.3 Security (Acunetix)
+#### 2.3.4 Reliability
+The two mentioned types of downtime have different causes and fixes.
+
+Expected downtime is downtime needed for maintenance, migrations, etc. This is downtime that can be controlled. By setting up zero downtime deployments on the kubernetes server we can make sure that the downtime for these things are kept to a minimum and the downtime is essentially 0. Migrations might still need some downtime, but migrations don't happen on the daily. Were this to be needed, the service could be offline for an entire day in a year while the requirement would still be met.
+
+Unexpected downtime is downtime caused by issues like traffic overload or cluster downtime. By hosting the service on an Azure Kubernetes Cluster these problems kan be mitigated for the most part. Azure garuenteed [%99.95](https://learn.microsoft.com/en-us/azure/aks/uptime-sla) uptime SLA. Besides that hosting the cluster on a Azure provides us with other benefits:
+
+- Redundancy and failover: AKS clusters are designed to be highly available and redundant, with multiple nodes and infrastructure components that can automatically failover in the event of a failure or outage.
+- Monitoring and alerting: AKS clusters are monitored by Azure and can send alerts if there are any issues or problems.
+- Automatic scaling: AKS clusters can automatically scale up or down based on workload demand, which can help to ensure that applications have the resources they need to function properly.
+- Maintenance and updates: AKS clusters are managed by Azure and receive regular maintenance and updates to ensure that they are running the latest software and hardware.
+By using these redundancies and capabilities we can make sure that unexpected downtime is kept to a minumum.
+
+#### 2.3.5 Closed Source
+After the any access by teachers for school purposes is not needed anymore the repositories of the services will be set to private. This makes sure that source code is not leaked to prevent copycats and makes the application more secure by hiding any possible flaws from people with malicious intent.
+
+#### 2.3.6 Data Integrity
 
 ## 2. Architecture
 As mentioned before, designing a well thought out architecture is essential to make sure NFR's can be realised. Therefore the following design has been created:
