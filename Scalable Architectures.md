@@ -27,6 +27,8 @@ Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly o
 
 #### 2.3.2 Security (Sonarcloud)
 The quality gate can be used to help ensure that codebases meet certain security standards. For example, the quality gate could be configured to require that codebases have a certain level of test coverage, to ensure that all relevant code paths are being tested and that the code is properly tested for security vulnerabilities. It could also be configured to require that codebases have a certain level of security hardening, such as requiring the use of secure coding practices and the inclusion of security headers.
+![image](https://user-images.githubusercontent.com/46562627/210672819-b1131114-bb69-4419-8745-0c267cf48c94.png)
+
 
 #### 2.3.3 Security (Acunetix)
 #### 2.3.4 Reliability
