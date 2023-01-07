@@ -67,6 +67,29 @@ jobs:
 
 ### 2.3 Sonarcloud
 To check the quality of my code, I added a [Sonarcloud](https://sonarcloud.io/) workflow to my repositories. Sonarcloud checks the codebase not only for code smells and bugs, but also security hotspots and vulnerabilities. Using Sonarcloud can give a team a great insight into their code quality and can help prevent merging broken branches.
+```yaml
+on:
+  push:
+    branches:
+      - main
+      - development
+
+jobs:
+  sonarcloud:
+    name: SonarCloud
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
+      - name: Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # SonarCloud access token should be generated from https://sonarcloud.io/account/security/
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+```
 
 ### 2.4 Docker
 This final workflow automatically builds a new docker image based on the dockerfile created within the project. I created 2 different workflows with different purposes. The **nightly** build is built on every push to the "Development" branch. This build is not directly ready for release but may contain release candidates. The **latest** build is the build that is ready to be released. This build is pushed on every push to the "main" branch.
@@ -136,6 +159,25 @@ jobs:
           push: true
           tags: lucjans26/wolkgeluid-monolith:latest
 ```
+
+#### Cypress Testing
+```yaml
+name: End-to-end tests
+
+on: [push]
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      # Install NPM dependencies, cache them correctly
+      # and run all Cypress tests
+      - name: Cypress run
+        uses: cypress-io/github-action@v5
+```
+
 ## 3. Testing
 Testing is an important part of the software engineering process because it helps ensure that a software application or system meets its requirements and functions as intended. In the context of continuous integration/continuous delivery (CI/CD), testing plays a crucial role because it helps to verify that code changes do not introduce new defects or break existing functionality. By performing testing at various stages of the CI/CD pipeline, developers can catch and fix issues early on, which helps to reduce the risk of errors and improve the overall quality of the software. Additionally, testing can help to ensure that the software is ready for deployment by verifying that it meets the necessary performance, security, and other requirements.
 
