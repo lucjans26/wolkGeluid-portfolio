@@ -48,6 +48,10 @@ By using these redundancies and capabilities we can make sure that unexpected do
 After the any access by teachers for school purposes is not needed anymore the repositories of the services will be set to private. This makes sure that source code is not leaked to prevent copycats and makes the application more secure by hiding any possible flaws from people with malicious intent.
 
 #### 2.3.6 Data Integrity
+[Implementing the right to be forgotten](https://github.com/lucjans26/wolkGeluid-portfolio/blob/main/Security%20by%20design.md#22-implementation) is a great proof of concept for data storage in accordance with GDPR regulations because it shows that it is possible to effectively delete personal data when requested by the user. This demonstrates that data controllers in multiple services are able to comply with the GDPR's requirement to only process personal data in a way that is necessary.
+
+Many more GDPR laws could and should be implemented to ensure a secure organisation and system with protected user data if more time and resources would be available.
+
 
 ## 2. Architecture
 As mentioned before, designing a well thought out architecture is essential to make sure NFR's can be realised. Therefore the following design has been created:
