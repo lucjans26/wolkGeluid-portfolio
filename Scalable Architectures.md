@@ -53,19 +53,19 @@ After the any access by teachers for school purposes is not needed anymore the r
 Many more GDPR laws could and should be implemented to ensure a secure organisation and system with protected user data if more time and resources would be available.
 
 
-## 2. Architecture
+## 3. Architecture
 As mentioned before, designing a well thought out architecture is essential to make sure NFR's can be realised. Therefore the following design has been created:
 
 ![image](https://user-images.githubusercontent.com/46562627/203989946-04e4560a-954f-4785-bc89-27666753e0d1.png)
 
 
-## 3. Messaging
+## 4. Messaging
 To make sure all the microservices are reliably and asynchrously connected messaging needs to be introduced to the mix. This also makes sure that the load can be evenly spread and that requests are never lost internally when for example a microservice (temporarily) goes down. Furthermore a message broker makes it possible to have just a singular point of communication to the microservices because the services can "listen" to just the topics that are essential to them. This also brings with it the benefit that the architecture is easily expendable.
 
-### 3.1 Example concept (Authentication)
+### 4.1 Example concept (Authentication)
 On login a message is sent to the bus on the auth topic. All of the services listen to this topic on the main exchange. The message contains the userId, the type of action that is happening, and the personal access token. When this message is received by a listener, the body is rad and the according function is carried out. In this case registering the access token into the sevice's database.
 
-### 3.2 Implementation
+### 4.2 Implementation
 
 #### Producer
 A special function for publishing a message is published as this has may be used in multiple business layers. The Method accepts a topic to which the message is sent and the payload that's sent. The exchange is created by the publisher if it doesn't exist yet.
@@ -131,13 +131,13 @@ public function handle()
     }
 ```
 
-### 3.3 Testing
+### 4.3 Testing
 In [this video](https://drive.google.com/file/d/15o4RT-kqFTT3HWd8W-6IMcL8IFLwLDAX/view?usp=sharing) you can see what happens during a longin. That a user is created in the auth service and that a message is produced. This message is than used by the microservices to register the accesstoken internally to authenticate withing the microservice without them needing thier own authentication methods or connection to the authService database.
 
-## 4. Gateway
+## 5. Gateway
 A gateway is a software pattern that sits in front of a group of microservices to faciliate requests and delivery of data and services. It functions as a single entrypoint to a complete architecture and apply policies to determine abilities and behaviour  for the group of microservices to determine avalibility and behaviour.
 
-### 4.1 Setup
+### 5.1 Setup
 For my architecture I chose to create an Ocelot (.Net) gateway. Creating a basic gateway using Ocelot is fairly mundane. After creating a new API Project in visual studio we can install the Ocelot NuGet package.
 
 ![image](https://user-images.githubusercontent.com/46562627/204158626-4ea5bb4f-8dc2-4f77-9909-0c7874169d25.png)
@@ -148,16 +148,16 @@ After this we can add the necessary methods in the Program.cs. These methods han
 
 In this example we can see the setup for a single endpoint in the song service. In this case the endpoint a basically identical. Everything related to "downstream" handles where the request will eventually go to. In the example we can see that the request wil go to localhost, port 8080, to the /api.auth/google/redirect endpoint. Any request that goes to the gateway endpoint (upstream) /api/auth/google will be sent to the downstream. The gateway accepts just the get method in this case, but the array may contain any method type.
 
-### 4.1 Test
+### 5.2 Test
 To see the functionality of the gateway i've made [this video](https://drive.google.com/file/d/12soJ4q70z8mJMzntvOjRYcOfjrzZoVZI/view?usp=sharing). In the video you can see that all my microservices and the gateway are running. The gateway is running on port 5000 as configured in the settings, and when making a request to the gateway I get a response from the authentication service on port 8080 where I perform a login.
 
-## 5. Monitoring
+## 6. Monitoring
 Monitoring is the practice of tracking the performance and availability of a system. It involves collecting data about the system (CPU usage, response times, logs, availibility), analyzing that data, and using it to identify any issues or activities that may indicate problems. It is important for multiple reasons, it:
 - Helps ensure the system is performing well and meets the needs of the users
 - Can help identify and troubleshoot issues
 - Provide insight into how the system is being used to optimize it's performance and scalability
 
-### 5.1 Setup
+### 6.1 Setup
 The monitoring system consists out of three seperate parts; the data "source" ([InfluxDB](https://www.influxdata.com/)), the data collection agent ([Telegraf](https://www.influxdata.com/time-series-platform/telegraf/)), and the visualisation tool ([Grafana](https://grafana.com/grafana/)).
 InfluxDB is a time series database that can be used to store and query large amounts of [time-series data](https://www.influxdata.com/what-is-time-series-data/). Telegraf is a data collection agent that can be used to collect metrics from various sources and write them to InfluxDB. Grafana is a visualization tool that can be used to create dashboards and graphs of the data stored in InfluxDB.
 
@@ -188,7 +188,7 @@ Finally we can simple deploy the Grafana image where we can connect the data sou
 
 Of course and Azure monitor data source could also be configured. Unfortunately this is not possible with the student subscription that is provided by school. Were this possible, it could be implemented the same way rabbitMQ will be.
 
-### 5.2 Implementation
+### 6.2 Implementation
 It is important to monitor essetial metrics of a (sub)system. Monitoring metrics that aren't important wil result in a crowded screen that makes it hard to spot real problems. Therefore I chose to monitor the following metrics on the rabbitMQ deployment; Node status, Unacknowlegded (queued) messages, available system memory. 
 
 A few queued messages are to be expected. after all this is the point of using a message queue. But messages piling up mean that a service is not running as expected. In the following demonstration I paused one of the services so the messages are nog consumed from the queue. The metric is set up in a way that means that 0 - 4 queued messages result in a green indicator, 5 - 7 in an orange indicator, and 8+ result in a red indicator.
@@ -202,4 +202,4 @@ The available memory metric gives an indication on how the system is handeling t
 
 Many more metrics and systems can be monitored, and the customisation is almost endless. However the form of monitoring and the setup should fit the needs of the system or application to be monitored.
 
-## 6. Reflection
+## 7. Reflection
