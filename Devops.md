@@ -216,25 +216,23 @@ The caveat of course is that within a microservice architecture everything is di
 
 ![image](https://user-images.githubusercontent.com/46562627/211157917-fcb921df-d301-447c-a37e-7488a4bf441b.png)
 
-## 4. SonarCloud
-
-## 5. Branch Protection
+## 4. Branch Protection
 To prevent merging broken branches, I added branch protection rules. In this example the protection from the main branch requires any merge to pass the testing workflow and the Sonarcloud quality control gate. This means that all tests must pass and the coverage must be at least 80% (or other as defined in sonarcloud).
 
 ![image](https://user-images.githubusercontent.com/46562627/208779023-3aa92942-bc45-4d03-87a8-372a0c6038ca.png)
 
-## 6. Status badges
+## 5. Status badges
 To give the developers working on a project a quick insight into the workflow status of a project, [workflow status badges](https://docs.github.com/en/actions/monitoring-and-troubleshooting-workflows/adding-a-workflow-status-badge) can be added to the readme.md.
 
 ![image](https://user-images.githubusercontent.com/46562627/173389970-481b6e76-7721-4c95-9db4-08bd52f64e16.png)
 
-## 7. Postman
+## 6. Postman
 During the development process, especially when building an API, a way to test manually can be really helpful using a client. However it saves a lot of time if every developer within a team has access to the same information to test with and that all endpoints are documented with example data and responses.
 For this a team can be created in [Postman](https://www.postman.com/). Within this team everybody has access to previously made requests, saved requests and responses, and if documented well withon postman gives the team the ability to convert a collection straight into an API specification.
 
 ![image](https://user-images.githubusercontent.com/46562627/173391926-83919ecc-1b04-403e-a473-793c7ec077a3.png)
 
-## 8. Reflection
+## 7. Reflection
 I believe I have made significant efforts to set up environments and tools that support the software development process, and to automate as much of the development process as possible in order to increase the development lifecycle and improve software quality.
 
 I have implemented a pipeline using GitHub Actions that includes several different steps, such as linting the code, running unit tests, performing Sonarcloud analysis, and creating new Docker images. These steps are designed to catch and address issues early on in the development process, which can help to ensure that the software is of high quality and free of defects.
