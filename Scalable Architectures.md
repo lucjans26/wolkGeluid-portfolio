@@ -24,6 +24,16 @@ Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly o
 ### 2.3 "Implementation"
 
 #### 2.3.1 Speed
+Load testing is used to determine how an application performs under a specific load. This is important because it helps to ensure that the application is able to handle the expected volume of traffic or usage without experiencing performance issues.
+
+In the following image a 40 second test of 250 virtual users was performed. As you can see the response time (http_req_duration) is under the specified 2 seconds in the non functionals. However, over **93%** of requests did not get a successfull response at all.
+![image](https://user-images.githubusercontent.com/46562627/211382555-c210356a-e667-466a-a969-5cbdcda09bfd.png)
+
+When [Horiontal pod autoscaling](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/) is enabled, extra pods are created to meet the demands. When a pod reaches it's threshold on CPU and/or memory use, kubernetes creates the extra pods. The load balancer makes sure the load is fairly distributed.
+When the same test is run on an autoscaling deployment, the responsetime is greatly reduced and response success is 100%. 
+
+![image](https://user-images.githubusercontent.com/46562627/211386876-3637dd65-42ba-4832-8447-c2babceb0350.png)
+
 
 #### 2.3.2 Security (Sonarcloud)
 The quality gate can be used to help ensure that codebases meet certain security standards. For example, the quality gate could be configured to require that codebases have a certain level of test coverage, to ensure that all relevant code paths are being tested and that the code is properly tested for security vulnerabilities. It could also be configured to require that codebases have a certain level of security hardening, such as requiring the use of secure coding practices and the inclusion of security headers.
