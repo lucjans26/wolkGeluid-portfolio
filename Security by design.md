@@ -96,3 +96,17 @@ Finally the mitigations for the threats can be determined.
 
 
 ## 7. Reflection
+I have learned a lot about designing a secure application and incorperating best practices in my development process.
+
+Before the project started I created a risk analysis in which I establish possible vulnerabilities, the risks they pose, the risk level they have, and how I can prevent them by designing my application accordingly.
+
+I have implemented the right to deletion which is part of the General Data Protection Regulation checklist which shows I know how to work throught the checklist so that I can create a fully compliant system (given the time and resources) in which risk of personal data leaking is minimized.
+
+In addition I have used industry standard tool like SonarLint en Sonarcloud which help me scan my code for potential issues way before deployment. By adding Sonarcloud to my pipeline I can even prevent broken builds from even merging to master branches.
+
+I have also made an OWASP top 10 document which shows I understand the most common security issues in web applications and how I mitigate these. Combined with an Acunetix test report I can check whether my application specifically has any vulnerabilities. By creating a mitigation report I can explain what the outstanding vulnerabilities are and how I can mitigate those.
+
+Finally I also created an authentication service which uses Google Oauth to minimize security vulnerabilities I could introduce by bulding it myself. This combined with Role Based Access Control prevents unauthorized users from using my application
+
+Althought there is a lot to be learned on the side of authorisation I do believe that the system that I built is a great foundation to build on in the future. This realisation, combined with the new concepts I have used (like OAuth, RBAC, risk analysis and GDPR), I believe that if I focus more on learning about authorisation, that in the future I can create more secure applications that implement best practices.
+
