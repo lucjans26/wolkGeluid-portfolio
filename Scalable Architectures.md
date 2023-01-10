@@ -23,7 +23,7 @@ Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly o
 
 ### 2.3 "Implementation"
 
-#### 2.3.1 Speed
+#### 2.3.1 Speed✔️
 Load testing is used to determine how an application performs under a specific load. This is important because it helps to ensure that the application is able to handle the expected volume of traffic or usage without experiencing performance issues.
 
 In the following image a 40 second test of 250 virtual users was performed. As you can see the response time (http_req_duration) is under the specified 2 seconds in the non functionals. However, over **93%** of requests did not get a successfull response at all.
@@ -35,13 +35,19 @@ When the same test is run on an autoscaling deployment, the responsetime is grea
 ![image](https://user-images.githubusercontent.com/46562627/211386876-3637dd65-42ba-4832-8447-c2babceb0350.png)
 
 
-#### 2.3.2 Security (Sonarcloud)
+#### 2.3.2 Security (Sonarcloud)✔️
 The quality gate can be used to help ensure that codebases meet certain security standards. For example, the quality gate could be configured to require that codebases have a certain level of test coverage, to ensure that all relevant code paths are being tested and that the code is properly tested for security vulnerabilities. It could also be configured to require that codebases have a certain level of security hardening, such as requiring the use of secure coding practices and the inclusion of security headers.
 ![image](https://user-images.githubusercontent.com/46562627/210672819-b1131114-bb69-4419-8745-0c267cf48c94.png)
 
 
-#### 2.3.3 Security (Acunetix)
-#### 2.3.4 Reliability
+#### 2.3.3 Security (Acunetix)❌
+Based on [the Acunetix mitigation report](https://github.com/lucjans26/wolkGeluid-portfolio/blob/main/Acuntix%20Mitigatie%20report.pdf), it appears that the Wolkgeluid web application has some vulnerabilities with regards to its security. The report specifically mentions issues related to cryptographic failures and insecure design. These vulnerabilities are detailed in the report and recommendations are provided on how to mitigate and remediate each issue.
+
+- The Unencryped connection could easily be fixed by hosting the system on a cloud service as has been done for the group project.
+- The Content Security Policy could be fixed using [this package](https://github.com/spatie/laravel-csp) and configuring it accordingly.
+- The HttpOnly cookie flag vulnerability can be fixed by editing the [application config](https://github.com/laravel/laravel/blob/master/config/session.php#L180) so that the flag is set to true.
+
+#### 2.3.4 Reliability〰️
 The two mentioned types of downtime have different causes and fixes.
 
 Expected downtime is downtime needed for maintenance, migrations, etc. This is downtime that can be controlled. By setting up zero downtime deployments on the kubernetes server we can make sure that the downtime for these things are kept to a minimum and the downtime is essentially 0. Migrations might still need some downtime, but migrations don't happen on the daily. Were this to be needed, the service could be offline for an entire day in a year while the requirement would still be met.
@@ -54,10 +60,10 @@ Unexpected downtime is downtime caused by issues like traffic overload or cluste
 - Maintenance and updates: AKS clusters are managed by Azure and receive regular maintenance and updates to ensure that they are running the latest software and hardware.
 By using these redundancies and capabilities we can make sure that unexpected downtime is kept to a minumum.
 
-#### 2.3.5 Closed Source
+#### 2.3.5 Closed Source✔️
 After the any access by teachers for school purposes is not needed anymore the repositories of the services will be set to private. This makes sure that source code is not leaked to prevent copycats and makes the application more secure by hiding any possible flaws from people with malicious intent.
 
-#### 2.3.6 Data Integrity
+#### 2.3.6 Data Integrity✔️
 [Implementing the right to be forgotten](https://github.com/lucjans26/wolkGeluid-portfolio/blob/main/Security%20by%20design.md#22-implementation) is a great proof of concept for data storage in accordance with GDPR regulations because it shows that it is possible to effectively delete personal data when requested by the user. This demonstrates that data controllers in multiple services are able to comply with the GDPR's requirement to only process personal data in a way that is necessary.
 
 Many more GDPR laws could and should be implemented to ensure a secure organisation and system with protected user data if more time and resources would be available.
