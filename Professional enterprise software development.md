@@ -41,3 +41,5 @@ On a group level I believe we have produces a good project overall. Even though 
 Furthermore I've had a great experience using Jira and working with SCRUM. Our deliverables and planning were always clear and tasks were always assigned making it someones responsibility, making sure it had to be completed.
 
 I wholeheartedly believe that the skills I have learned and other skills I have mastered this semester, on a professional level as well as on a technical level, will be really valueable during my final internship and rest of my career
+
+Addendum: "Ik denk dat jij meer gericht bent op optimalisatie van het proces en ook veel meer diepgang kan brengen in de feedback dan de overige studenten. Dat is een mooie eigenschap die ik niet vaak terug zie bij FH ICT studenten. Kort samengevat denk ik dus dat jij iets kan wat andere studenten niet zomaar kunnen. De andere studenten hebben volgens mij wel hun best gedaan maar komen niet verder als de feedback die ze hebben gegeven. Ben blij met deze mooie eigenschap." - _Monique Vissers **as a response to the meager 1st peer feedback from the group towards me**_
