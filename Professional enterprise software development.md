@@ -9,7 +9,7 @@ Peer feedback can be an effective way to validate the learning outcome because i
 To make this chapter as concise as possible I will be summarising the feedback of all the group members into a single story.
 
 ### 2.1 Feedback Moment 1
-_Disclaimer: due to the lighthearted nature of our group, many of the memebrs dit not take the first peer feedback moments as serious as they should have_
+_Disclaimer: due to the lighthearted nature of our group, many of the memebers did not take the first peer feedback moments as serious as they should have_
 
 Luc is a good group member. He completes the tasks he is assigned to and tries to take the lead when necessary. Luc clearly knows what the project is about and has good ideas about it. Sometimes it might make sense to look at alternatives when you get stuck.
 
