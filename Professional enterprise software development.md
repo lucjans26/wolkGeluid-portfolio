@@ -25,8 +25,11 @@ Feedback moments documented in feedpulse can also help to validate the learning 
 ![image](https://user-images.githubusercontent.com/46562627/211563157-2937662e-141c-4ce3-a218-5fc2a3947f60.png)
 
 ### 3.2 Group
+
 ![image](https://user-images.githubusercontent.com/46562627/211562093-6f1e4d9a-2e47-48dd-bd27-cc4c2b2c6fe8.png)
+
 ![image](https://user-images.githubusercontent.com/46562627/211563311-50a07dca-c42d-4fa9-af25-886488741cc6.png)
+
 ![image](https://user-images.githubusercontent.com/46562627/211563617-37402490-d016-4ef4-9b39-3588fd464f19.png)
 
 ## 4. Reflection
