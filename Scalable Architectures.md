@@ -2,7 +2,7 @@
 Besides functionality, you develop the architecture of enterprise software based on quality attributes. You especially consider attributes most relevant to enterprise contexts with high volume data and events. You design your architecture with future adaptation in mind. Your development environment supports this by being able to independently deploy and monitor the running parts of your application.
 
 ## 2. Non-Functionals
-Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly on the operation of a system rather than specific behaviour or functionalities. Accounting for implementation of NFR's need t be done during the system architecture design phase because of the architectural significance. My NFR's are as follows:
+Unlike Functional requirements, Non-functional Requirements (NFR) focus mostly on the operation of a system rather than specific behaviour or functionalities. Accounting for implementation of NFR's need to be done during the system architecture design phase because of the architectural significance. My NFR's are as follows:
 
 ### 2.1 Definition
 - **Speed**: All requests are handled within 2 seconds
@@ -151,7 +151,7 @@ public function handle()
 In [this video](https://drive.google.com/file/d/15o4RT-kqFTT3HWd8W-6IMcL8IFLwLDAX/view?usp=sharing) you can see what happens during a longin. That a user is created in the auth service and that a message is produced. This message is than used by the microservices to register the accesstoken internally to authenticate withing the microservice without them needing thier own authentication methods or connection to the authService database.
 
 ## 5. Gateway
-A gateway is a software pattern that sits in front of a group of microservices to faciliate requests and delivery of data and services. It functions as a single entrypoint to a complete architecture and apply policies to determine abilities and behaviour  for the group of microservices to determine avalibility and behaviour.
+A gateway is a software pattern that sits in front of a group of microservices to faciliate requests and delivery of data and services. It functions as a single entrypoint to a complete architecture and apply policies to determine abilities and behaviour for the group of microservices to determine avalibility and behaviour.
 
 ### 5.1 Setup
 For my architecture I chose to create an Ocelot (.Net) gateway. Creating a basic gateway using Ocelot is fairly mundane. After creating a new API Project in visual studio we can install the Ocelot NuGet package.
@@ -219,3 +219,17 @@ The available memory metric gives an indication on how the system is handeling t
 Many more metrics and systems can be monitored, and the customisation is almost endless. However the form of monitoring and the setup should fit the needs of the system or application to be monitored.
 
 ## 7. Reflection
+I have learned an abundance of new skills with regards to scalable architectures and validating non-functional requirements.
+
+This application is designed to be adaptable for future use with specific non-functional requirements that have been identified; including speed, security, reliability, closed-source, and data integrity. All of these non functional requirements make sure the operational side of the system is as good as can be.
+
+I implemented messaging to make sure future expansion of the application can be done as effectively as possible. It also makes sure that different services are not completely dependant on each other. This in turn prevents the application from going down completely when a single service fails.
+
+Besides this, I set up a gateway using the Ocelot .Net package. This creates a single entrypoint for applications from outside the back-end architecture.
+
+Finally, I realized a monitoring system using the InfluxDB, Telegraf, and Grafana stack. This helps to identify any issues or activities that may indicate problems. All this to garuentee that the application performs as intended.
+
+I really believe that I demonstrated that the project effectively considers and addresses non-functional requirements in the architecture design and implementation of the realisation of the application, and that the development environment supports future adaptation.
+
+
+
