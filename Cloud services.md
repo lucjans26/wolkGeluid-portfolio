@@ -206,3 +206,11 @@ See [Distributed Data 5.](https://github.com/lucjans26/wolkGeluid-portfolio/blob
 
 ![image](https://user-images.githubusercontent.com/46562627/205497567-81d984d0-5746-4fd9-8def-f17abc4ccfec.png)
 
+## 6. Reflection
+Within this semester I believe I have shown that I am able to implement cloud services to enhance my services.
+
+I have implemented Algolia into my application to increase the responsetime on searches in really big datasets. After doing this I have looked into pricing and how pricing is effected by the anount of records and requests made when scaling the application. By implementing these services I can provide real-time search results and global accesibility.
+
+The same process has been realised for Azure File storage and Azure CosmosDb providing scalability, high availability, global accessebility, and for Azure Kubernetes Service (providing scalability, high availability, security, easy management,and integration with other Azure services).
+
+As companies start implementing more and more microservice architectures, the ability to deploy and integrate cloud services into applications is becoming increasingly important. Experiencing how to do this effectively and learning how to be aware of costs and added value is an important skill that will help me during the rest of my career.
